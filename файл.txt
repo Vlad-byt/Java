@@ -1,0 +1,196 @@
+//Задача 6
+
+public class Main
+{
+    public static void main(String[] args) {
+        String str = "xslxxodjladf11o";
+        String findStr = "xx";
+        int lastIndex = 0;
+        int count = 0;
+        System.out.println(recursion(lastIndex, count, str, findStr));
+    }
+    
+    public static int recursion(int lastIndex, int count, String str, String findStr){
+        lastIndex = str.indexOf(findStr,lastIndex);
+        if(lastIndex != -1){
+        count += 1;
+        return recursion(lastIndex += 1, count, str, findStr);
+        }
+        return count;
+    }
+}
+
+
+// Задача 18
+public class Main
+{
+    public static void main(String[] args) {
+        String str = "11sl11odjladf11o";
+        String findStr = "11";
+        int lastIndex = 0;
+        int count = 0;
+        System.out.println(recursion(lastIndex, count, str, findStr));
+    }
+    
+    public static int recursion(int lastIndex, int count, String str, String findStr){
+        lastIndex = str.indexOf(findStr,lastIndex);
+        if(lastIndex != -1){
+        count += 1;
+        return recursion(lastIndex += 1, count, str, findStr);
+        }
+        return count;
+    }
+}
+
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+// Задача 16
+
+class Main {
+    public static int[] add(int n, int arr[], int x)
+    {
+        int i;
+        int newarr[] = new int[n + 1]
+        for (i = 0; i < n; i++){
+            newarr[i] = arr[i]
+        }
+        newarr[n] = x;
+        return newarr;
+        
+        int i;
+        int newarr[] = new int[n + 1];
+        for (i = 0; i < n; i++)
+            newarr[i] = arr[i];
+        newarr[n] = x;
+        return newarr;
+    }
+
+    public static void main(String[] args){
+        int i;
+        int arr[] = { 1, 2, 3, 4};
+        System.out.println("Initial Array:\n" + Arrays.toString(arr));
+        int x = 5;
+        arr = add(arr.length, arr, x);
+        System.out.println("\nArray with " + x + " added:\n" + Arrays.toString(arr));
+    }
+}
+
+
+// 12
+
+public class Main
+{
+    public static void main(String[] args) {
+        int 
+    
+    
+        int[] nums = new int[]{1, 4, -2, 3};
+        int min = nums[0];
+        int max = nums[0];
+        for (int i : nums) {
+            if (i < min) {
+                min = i;
+                
+            }
+        }
+        for (int j : nums) {
+            if (j > max) {
+                max = j;
+            }    
+        }
+        System.out.println(max - min);
+    }
+}
+
+
+
+public class Solution {
+    public static String[][] array;
+
+    public static void main(String[] args) {
+        int n = 8;
+        array = new String[n][n*n];
+        for (int i = 0; i <= array.length-1; i++) {
+            for (int j = 0; j <= array.length-1; j++) {
+                
+                if (i == 0){
+                    if (j == 0) {
+                        array[i][j] = "♜ ";
+                    }
+                    else if (j == 1) {
+                        array[i][j] = "♞ ";
+                    }
+                    else if (j == 2) {
+                        array[i][j] = "♝";
+                    }
+                    else if (j == 3) {
+                        array[i][j] = "♚ ";
+                    }
+                    else if (j == 4) {
+                        array[i][j] = "♛ ";
+                    }
+                    else if (j == 5) {
+                        array[i][j] = "♝";
+                    }
+                    else if (j == 6) {
+                        array[i][j] = "♞ ";
+                    }
+                    else {
+                        array[i][j] = "♜";
+                    }
+                    
+                }
+                
+                else if (i == array.length-1){
+                    if (j == 0) {
+                        array[i][j] = "♖ ";
+                    }
+                    else if (j == 1) {
+                        array[i][j] = "♘ ";
+                    }
+                    else if (j == 2) {
+                        array[i][j] = "♗";
+                    }
+                    else if (j == 3) {
+                        array[i][j] = "♔ ";
+                    }
+                    else if (j == 4) {
+                        array[i][j] = "♕ ";
+                    }
+                    else if (j == 5) {
+                        array[i][j] = "♗";
+                    }
+                    else if (j == 6) {
+                        array[i][j] = "♘ ";
+                    }
+                    else {
+                        array[i][j] = "♖";
+                    }
+                }
+                
+              /*  else if (i == 1){
+                         array[i][j] = "♟";
+                    }
+                    else if (i == length-2){
+                        array[i][j] = "♙";
+                    }
+                    
+                    пешки выезжают за края.
+                    */
+                    
+                else if ( (i + j) % 2 == 0) {
+                    array[i][j] = "⬛";
+                } 
+                
+                else {
+                    array[i][j] = "⬜";
+                }
+                System.out.print(" " + array[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
