@@ -16,13 +16,13 @@ public class Main
        for(Map.Entry<String, Integer> entry: map.entrySet()) {
            String key = entry.getKey();
            System.out.println("введите оценку");
-           number = sc.nextLine();
-           if nummber == "print"{
-               System.out.println(map);
-           }
-           else {
-           Integer i1 = new Integer(number);
+           
+           if (sc.hasNextInt()) {
+           int number = sc.nextInt();
            map.put(key, number);
+           } 
+           else {
+               System.out.println(map);
            }
 
            
