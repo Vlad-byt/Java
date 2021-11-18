@@ -1,6 +1,7 @@
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.io.*;
 
 public class Main
 {
@@ -26,16 +27,20 @@ public class Main
            
            } 
            else {
-               break;
+               String line = sc.nextLine();
+               if (line.toLowerCase() == "print"){
+                   break;
+                    
+               } else {System.out.println("неверная строка");}
            }
 
            
        }
        for(Map.Entry<String, Integer> entry: map.entrySet()) {
            String key = entry.getKey();
-           Integer value = entry.getValue()
-           System.out.println(Key + ": ");
-           System.out.println(Value);
+           Integer value = entry.getValue();
+           System.out.println(key + ": ");
+           System.out.println(value);
        }
     }
 }
