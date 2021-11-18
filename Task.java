@@ -1,5 +1,3 @@
-
-
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -19,13 +17,25 @@ public class Main
            
            if (sc.hasNextInt()) {
            int number = sc.nextInt();
-           map.put(key, number);
+           if (number >=1 && number <= 5){
+               map.put(key, number);
+               System.out.println(key);
+           } else {
+               System.out.println("оценка не верна");
+           }
+           
            } 
            else {
-               System.out.println(map);
+               break;
            }
 
            
+       }
+       for(Map.Entry<String, Integer> entry: map.entrySet()) {
+           String key = entry.getKey();
+           Integer value = entry.getValue()
+           System.out.println(Key + ": ");
+           System.out.println(Value);
        }
     }
 }
