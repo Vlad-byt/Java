@@ -10,9 +10,9 @@ String email = "vlad_ste@mail.ru";
 String telephone_number = "+7 926 122 96 39";
 Coder coder = new Coder();
 int code = coder.Send_code();
-Author author = new Author(email, telephone_number, code);
-author.Check_Login();
-author.Check_Code();
+Auth auth = new Auth(email, telephone_number, code);
+auth.Check_Login();
+auth.Check_Code();
 
 }
 }
@@ -24,12 +24,12 @@ class Coder {
    }
 }
 
-class Author {
+class Auth {
 String email;
 String telephone_number;
 int code;
 
-public Author(String email, String telephone_number, int code) {
+public Auth(String email, String telephone_number, int code) {
 this.email = email;
 this.telephone_number = telephone_number;
 this.code = code;
