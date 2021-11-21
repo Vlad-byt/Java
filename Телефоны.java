@@ -1,9 +1,6 @@
-public class Main {
-    
-}
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import static java.lang.Math.*;
 
 
 public class Main
@@ -11,18 +8,26 @@ public class Main
 public static void main(String[] args) {
 String email = "vlad_ste@mail.ru";
 String telephone_number = "+7 926 122 96 39";
-int code = 1231;
+Coder coder = new Coder();
+int code = coder.Send_code();
 Author author = new Author(email, telephone_number, code);
 author.Check_Login();
+author.Check_Code();
 
 }
+}
+
+class Coder {
+   public static int Send_code(){
+       int random_number = 000000 + (int) (Math.random() * 999999);
+       return random_number;
+   }
 }
 
 class Author {
 String email;
 String telephone_number;
 int code;
-
 
 public Author(String email, String telephone_number, int code) {
 this.email = email;
@@ -45,7 +50,13 @@ System.out.println(matches);
 if (matches1 == true){
 System.out.println(matches1);
 } else { System.out.println("Ошибка"); }
-
 }
 
-} 
+public void Check_Code() {
+    if (String.valueOf(this.code).length() == 6){
+       System.out.println("Correct!");
+    }
+    else {System.out.println("Uncorrect!");}
+}
+
+}
