@@ -7,7 +7,7 @@ public class Main
     public static void main(String[] args) {
         int index = 1; 
         int x = 50;
-        String element = "5";
+        String element = "1";
         int arr[] = { 1, 2, 3, 5, 6, 7, 8, 9, 10, 4 }; 
         HubList hub = new HubList(arr);
         hub.add(x);
@@ -17,7 +17,7 @@ public class Main
     }
 }
        
-       class HubList {
+       class HubList implements HubList_IT{
         int x;
         int arr[]; 
         int index;
@@ -27,7 +27,7 @@ public class Main
             this.arr = arr;
         }
         
-        void add(int x) {
+       public void add(int x) {
             this.x = x;
             int newarr[] = new int[this.arr.length + 1];
 
@@ -68,20 +68,26 @@ public class Main
             System.out.print(Arrays.toString(this.arr));
         }
         
-        public void find(String element) { //не ищет то, что надо, хотя всё в порядке???
+        public void find(String element) {
             this.element = element;
             if (Objects.isNull(this.arr)) {
-                System.out.print("Элемента не существуют");
+                System.out.print("Элемента не существуут");
             } 
             else {
                 for (int i = 0; i < this.arr.length; i++) {
-                    String str = Integer.toString(this.arr[i]);
-                    if (str == this.element) { //преобразование в строку не проверятеся по какой-то причине?
+                    String str = String.valueOf(this.arr[i]);
+                    if (Objects.equals(str, this.element) == true) {
                          System.out.print(this.arr[i]);
                          break;
                     } else {continue; }
                 }
-                System.out.print("Элемента не существуют");
             }
         }
-}
+    }
+    interface HubList_IT{
+        public void add(int x);
+        public void removeAt(int index);
+        public void sort();
+        public void find(String element);
+        
+    }
