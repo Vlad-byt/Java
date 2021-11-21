@@ -9,20 +9,20 @@ public class Main {
     
 public static void main(String[] args){
         HashMap<String, String> passportsAndNames = new HashMap<>();
-        Add hub = new Add(passportsAndNames);
-        hub.sign_in();
-        hub.sign_in();
+        Auth auth = new Server(passportsAndNames);
+        auth.Registrate();
+        auth.Sign_In();
     }
 }
 
-class Hublist {
+class Auth {
     HashMap<String, String> passportsAndNames;
     
-    public Hublist(HashMap<String, String> passportsAndNames){
+    public Auth(HashMap<String, String> passportsAndNames){
         this.passportsAndNames = passportsAndNames;
     }
     
-    public void sign_in(){
+    public void Registrate(){
         Pattern pattern1 = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
         Pattern pattern2 = Pattern.compile("^\\+?[0-9\\-\\s]*$");
         if (passportsAndNames.isEmpty()) {
@@ -53,7 +53,12 @@ class Hublist {
             } 
             else { System.out.println("Ошибка"); }
         }
-        else {
+        else {System.out.println("Вы уже зарегестрированы");}
+    }
+        
+        public void Sign_In(){
+            Pattern pattern1 = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
+            Pattern pattern2 = Pattern.compile("^\\+?[0-9\\-\\s]*$");
             Scanner sc = new Scanner(System.in);
             String login, password;
             
@@ -93,10 +98,9 @@ class Hublist {
             else { System.out.println("Ошибка"); }
         }
     }
-}
     
-   class Add extends Hublist{
-          public Add(HashMap<String, String> passportsAndNames) {
+   class Server extends Auth{
+          public Server(HashMap<String, String> passportsAndNames) {
               super(passportsAndNames);
           }
     } 
